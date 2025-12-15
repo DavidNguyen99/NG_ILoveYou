@@ -1,0 +1,328 @@
+:root {
+  --pink-bg: #fff5f8;
+  --pink-main: #f6a5c0;
+  --pink-soft: #ffe1ec;
+  --text-dark: #704a57;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, #fff0f5, #ffe4ec);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+h1, h2 {
+  font-family: 'Pacifico', cursive;
+  color: var(--pink-main);
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 500px;
+  margin: auto;
+}
+
+button {
+  background: var(--pink-main);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #f48fb1;
+  transform: scale(1.05);
+}
+
+/* ALBUM */
+.album {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.album img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+.album img:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* LETTER */
+.letter {
+  background: white;
+  max-width: 700px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* COUNTER */
+.counter-box {
+  font-size: 22px;
+  margin-top: 20px;
+  color: #e75480;
+}
+
+footer {
+  padding: 20px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* LOCK SCREEN */
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #fff5f8, #ffe1ec);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lock-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 300px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.lock-box h2 {
+  font-family: 'Pacifico', cursive;
+  color: #f6a5c0;
+}
+
+.lock-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #f6a5c0;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+#errorText {
+  color: #e75480;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* POLAROID ALBUM */
+.polaroid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.photo {
+  background: white;
+  padding: 10px 10px 20px;
+  border-radius: 10px;
+  width: 160px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: rotate(-2deg);
+  transition: 0.4s;
+}
+
+.photo:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.photo span {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #704a57;
+}
+
+.photo:hover {
+  transform: scale(1.1) rotate(0deg);
+  z-index: 10;
+}
+
+/* 🌸 VERTICAL MEMORY ALBUM */
+.vertical-album {
+  padding: 50px 16px;
+}
+
+.vertical-album h2 {
+  margin-bottom: 40px;
+}
+
+.memory {
+  max-width: 430px; /* Chuẩn iPhone 15 Plus */
+  margin: 0 auto 60px;
+}
+
+.memory img {
+  width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  animation: fadeUp 0.8s ease both;
+}
+
+.memory p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #704a57;
+  padding: 0 10px;
+  animation: fadeUp 1s ease both;
+}
+
+/* Animation nhẹ – rất mượt trên iOS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 💗 HEART RAIN */
+.heart {
+  position: fixed;
+  top: -10px;
+  pointer-events: none;
+  animation-name: heartFall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  z-index: 999;
+}
+
+@keyframes heartFall {
+  from {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+/* 💌 FINAL TYPING MESSAGE */
+.final-message {
+  max-width: 430px;
+  margin: 40px auto 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #704a57;
+  text-align: center;
+  min-height: 60px;
+}
+
+/* 💗 COMFORT BUTTON */
+.comfort {
+  padding: 40px 20px;
+}
+
+#comfortBtn {
+  background: #f6a5c0;
+  border-radius: 25px;
+  padding: 12px 22px;
+  font-size: 15px;
+}
+
+#comfortMessage {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #704a57;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+#hugMessage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  color: #704a57;
+  background: rgba(255, 220, 230, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  z-index: 999;
+}
+
+.caption {
+  font-size: 14px;
+  color: #704a57;
+  margin-top: 8px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.memory.show .caption {
+  opacity: 1;
+}
+
+.favorite img {
+  border: 3px solid #f6a5c0;
+  box-shadow: 0 8px 20px rgba(246, 165, 192, 0.4);
+}
+
+/* VÙNG BẮT CHẠM */
+#hugZone {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: transparent;
+}
+
+/* MESSAGE ÔM */
+#hugMessage {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  color: #704a57;
+  background: rgba(255, 220, 230, 0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cho Trà Giang 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lockScreen">
+        <div class="lock-box">
+            <h2>💗 Trang này dành riêng cho Trà Giang 💗</h2>
+            <p>Nhập mật khẩu để mở<br>(chỉ hai chúng ta biết)</p>
+            <input type="password" id="passwordInput" placeholder="••••••">
+            <button onclick="unlock()">Mở trang 💕</button>
+            <p id="errorText"></p>
+        </div>
+    </div>
+
+  <!-- NHẠC NỀN -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Cho em, Trà Giang 💕</h1>
+    <p>
+      ÂM thầm và dịu êm
+    </p>
+    <button id="startBtn">Bắt đầu câu chuyện của chúng ta 💗</button>
+  </section>
+
+  <!-- ALBUM -->
+  <section id="album" class="vertical-album">
+  <h2>Những Khoảnh Khắc Anh Nhớ 📷</h2>
+
+  <div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img1.jpg" alt="">
+  <div class="caption">Hôm đó là ngày em cười nhiều nhất</div>
+</div>
+
+
+  <div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img2.jpg" alt="">
+  <div class="caption">Ngày này trở nên cột mốc của chúng ta</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img3.jpg" alt="">
+  <div class="caption">Lại xích mích <br>nhưng sau tất cả thêm hiểu nhau hơn</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img4.jpeg" alt="">
+  <div class="caption">Ngày đầu bước vào ngôn ngữ mới</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img5.jpeg" alt="">
+  <div class="caption">Đi đường nói chuyện cho đỡ say hehe</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img6.jpg" alt="">
+  <div class="caption">Em bảo rằng "Chụp cho em đi anh!" </div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img7.jpeg" alt="">
+  <div class="caption">Nặn mụn đau nhưng sau đó láng đẹp hihi </div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img8.jpg" alt="">
+  <div class="caption">Trước trận chiến lớn. <br>Nhưng anh luôn yêu em</div>
+</div>
+
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img9.jpeg" alt="">
+  <div class="caption">Mãi mãi em nhé!</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img10.jpg" alt="">
+  <div class="caption">Anh rất thích chụp hình cho em</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img11.jpg" alt="">
+  <div class="caption">Hoàng hôn cũng bình thương <br> Có em mới đặc biệt</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img12.jpeg" alt="">
+  <div class="caption">Nhớ mãi thôi</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img13.jpeg" alt="">
+  <div class="caption">Khởi đầu cùng em yêu</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img14.jpg" alt="">
+  <div class="caption">Đi mệt quá, nghỉ xíu và công khai</div>
+</div>
+
+<div class="memory" onclick="toggleCaption(this)">
+  <img src="images/img15.jpg" alt="">
+  <div class="caption">Tác phẩm nghệ thuật sau đó được em công nhận</div>
+</div>
+
+  <div class="memory favorite" onclick="showFavorite()">
+  <img src="images/favorite.jpg" alt="">
+</div>
+
+  <div id="finalMessage" class="final-message"></div>
+
+
+</section>
+
+  <!-- LETTER -->
+  <section>
+    <h2>Gửi Trà Giang 💌</h2>
+    <div class="letter">
+      Trà Giang à,<br><br>
+
+      Em biết không, <br>
+      Cữ mỗi ngày, từng điều trôi qua <br>
+      Anh yêu em nhiều hơn <br>
+
+      Từng điều nhỏ em làm <br>
+      Từng lời em nói <br>
+      Từng sự an ủi <br>
+      Anh càng nhận ra, em thật tuyệt <br>
+
+      Không giống người khác, <br>
+      Em có chất riêng của mình <br>
+      Anh rất yêu điều đó <br>
+
+      Không biết nói gì hơn là <br>
+      ANH YÊU EM nhiều lắm 😘
+    </div>
+  </section>
+
+  <!-- COUNTER -->
+  <section>
+    <h2>Chúng Ta Đã Bên Nhau 💞</h2>
+    <button id="countBtn">Xem số ngày yêu nhau</button>
+    <div class="counter-box" id="counter"></div>
+  </section>
+<section class="comfort">
+  <button onclick="showComfort()">Nếu em buồn, bấm vào đây 💗</button>
+  <div id="comfortMessage"></div>
+</section>
+
+  <footer>
+    Made with 💕 for Trà Giang
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

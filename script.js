@@ -1,3 +1,12 @@
+// 🔝 Always start at top when page loads
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
+});
+
 // Scroll + bật nhạc
 document.getElementById("startBtn").addEventListener("click", () => {
   document.getElementById("album").scrollIntoView({
@@ -49,23 +58,8 @@ function unlock() {
   }
 })();
 
-const memories = document.querySelectorAll(".memory");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-    }
-  });
-}, { threshold: 0.2 });
-
-memories.forEach(m => {
-  m.style.opacity = 0;
-  observer.observe(m);
-});
 
 // 💗 HEART RAIN WHEN LAST IMAGE APPEARS
-const lastMemory = document.querySelector(".memory:last-child");
 let heartRainStarted = false;
 
 const heartObserver = new IntersectionObserver(entries => {
@@ -76,14 +70,6 @@ const heartObserver = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.6 });
-
-heartObserver.observe(lastMemory);
-
-function startHeartRain() {
-  for (let i = 0; i < 25; i++) {
-    createHeart();
-  }
-}
 
 function createHeart() {
   const heart = document.createElement("div");
@@ -108,18 +94,18 @@ const finalText =
 let typed = false;
 
 function typeFinalMessage() {
-  if (typed) return;
-  typed = true;
-
   const el = document.getElementById("finalMessage");
-  let i = 0;
+  const text =
+    "Cảm ơn em vì đã xem hết câu chuyện của chúng ta.\nAnh yêu em, Trà Giang.";
 
+  let i = 0;
   const typing = setInterval(() => {
-    el.innerHTML = finalText.slice(0, i).replace(/\n/g, "<br>");
+    el.innerHTML = text.slice(0, i).replace(/\n/g, "<br>");
     i++;
-    if (i > finalText.length) clearInterval(typing);
+    if (i > text.length) clearInterval(typing);
   }, 50);
 }
+
 
 // Gọi sau khi trái tim bắt đầu rơi
 function startHeartRain() {
@@ -172,5 +158,36 @@ function toggleCaption(el) {
 function showFavorite() {
   alert("Ảnh này làm anh nhớ em nhất.");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const favorite = document.querySelector(".memory.favorite");
+  let finalPlayed = false;
+
+  if (!favorite) {
+    console.error("❌ Không tìm thấy ảnh favorite");
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !finalPlayed) {
+          finalPlayed = true;
+
+          // 💗 tim rơi
+          for (let i = 0; i < 25; i++) {
+            createHeart();
+          }
+
+          // ✍️ gõ chữ sau 2s
+          setTimeout(typeFinalMessage, 2000);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  observer.observe(favorite);
+});
 
 

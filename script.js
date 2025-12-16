@@ -156,8 +156,13 @@ function toggleCaption(el) {
 }
 
 function showFavorite() {
-  alert("Ảnh này làm anh nhớ em nhất.");
+  document.getElementById("favoritePopup").classList.add("show");
 }
+
+function closeFavorite() {
+  document.getElementById("favoritePopup").classList.remove("show");
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const favorite = document.querySelector(".memory.favorite");
